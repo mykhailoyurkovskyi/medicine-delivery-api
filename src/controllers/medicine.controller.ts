@@ -18,7 +18,6 @@ type QueryParameter =
   | string[]
   | number[]
   | boolean[];
-type CategoryId = number[] | undefined;
 
 @injectable()
 export class MedicineController

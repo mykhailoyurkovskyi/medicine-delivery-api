@@ -18,6 +18,10 @@ import { ISequelize } from "./interfaces/db/sequelize.interface";
 import { SequelizeService } from "./services/sequelize.service";
 import { IMedicineController } from "./interfaces/medicines/medicine.controller.interface";
 import { MedicineController } from "./controllers/medicine.controller";
+import { IShoppingCartService } from "./interfaces/shoppingCart/shoppingCart.service.interface";
+import { ShoppingCartService } from "./services/shoppingCart.service";
+import { IShoppingCartController } from "./interfaces/shoppingCart/shoppingCart.controller.interface";
+import { ShoppingCartController } from "./controllers/shoppingCart.controller";
 
 export interface IBootstrapReturn {
   appContainer: Container;
@@ -32,6 +36,10 @@ export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
     .to(UsersRepository)
   bind<IUserController>(TYPES.UserController).to(UserController);
   bind<IMedicineController>(TYPES.MedicineController).to(MedicineController);
+  bind<IShoppingCartService>(TYPES.ShoppingCartService).to(ShoppingCartService);
+  bind<IShoppingCartController>(TYPES.ShoppingCartController).to(
+    ShoppingCartController,
+  );
   bind<ISequelize>(TYPES.SequelizeService)
   .to(SequelizeService)
   .inSingletonScope();

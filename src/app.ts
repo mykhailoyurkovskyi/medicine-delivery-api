@@ -13,6 +13,8 @@ import { ISequelize } from "./interfaces/db/sequelize.interface";
 import { IUserService } from "./interfaces/users/user.service.interface";
 import { IMedicineController } from "./interfaces/medicines/medicine.controller.interface";
 import { MedicineController } from "./controllers/medicine.controller";
+import { IShoppingCartService } from "./interfaces/shoppingCart/shoppingCart.service.interface";
+import { ShoppingCartController } from "./controllers/shoppingCart.controller";
 
 @injectable()
 export class App {
@@ -28,6 +30,10 @@ export class App {
     @inject(TYPES.ExceptionFilter) private exceptionFilter: IExceptionFilter,
     @inject(TYPES.ConfigService) private configService: IConfigService,
     @inject(TYPES.MedicineController) private medicineController: MedicineController,
+    @inject(TYPES.ShoppingCartController)
+    private shpController: ShoppingCartController,
+    @inject(TYPES.ShoppingCartService)
+    private shoppingCartService: IShoppingCartService,
   ) {
     this.app = express();
     this.port = this.configService.get('PORT') || process.env.PORT;
@@ -63,6 +69,7 @@ export class App {
   useRoutes(): void {
     this.app.use('/users', this.userController.router);
     this.app.use('/medicines', this.medicineController.router);
+    this.app.use('/shopping-cart', this.shpController.router);
   }
 
   useExceptionFilters(): void {

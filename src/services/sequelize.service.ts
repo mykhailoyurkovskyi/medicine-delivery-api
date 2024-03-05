@@ -15,6 +15,8 @@ import { MedicineResult } from '../interfaces/medicines/medicine.result.interfac
 import { MedicineContraindication } from '../models/medicines/medicine.contraindication';
 import { MedicineImageModel } from '../models/medicines/medicine.image';
 import { ContraindicationModel } from '../models/medicines/contraindication';
+import { ShoppingCartsModel } from '../models/shoppingCart/shoppingCart';
+import { CartItemModel } from '../models/shoppingCart/cartItem';
 
 @injectable()
 export class SequelizeService implements ISequelize {
@@ -52,7 +54,9 @@ export class SequelizeService implements ISequelize {
       MedicineModel,
       MedicineContraindication,
       MedicineImageModel,
-      ContraindicationModel
+      ContraindicationModel,
+      ShoppingCartsModel,
+      CartItemModel
     ]);
 
     this.logger.log('[Sequelize] Connected to db successfully');
