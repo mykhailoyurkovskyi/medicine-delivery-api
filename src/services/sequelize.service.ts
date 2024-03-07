@@ -150,6 +150,8 @@ export class SequelizeService implements ISequelize {
 
   private buildFilterCondition(key: string, value: any): string {
     switch (key) {
+      case 'id':
+        return ` AND medicine."id" = :${key}`;
       case 'name':
         return ` AND medicine.name LIKE :${key}`;
       case 'categoryId':

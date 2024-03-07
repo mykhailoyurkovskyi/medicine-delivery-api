@@ -92,6 +92,7 @@ export class MedicineController
       } = req.query;
 
       const filter: Filter = {
+        id: id ? +id : undefined,
         categoryId: categoryId ? +categoryId : undefined,
         name: name as string,
         medicinalForm: medicinalForm as string
