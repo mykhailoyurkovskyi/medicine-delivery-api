@@ -1,5 +1,5 @@
 {
-  "name": "gadjets_store_backend",
+  "name": "medicine_delivery_backend",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
@@ -13,8 +13,7 @@
     "lint:test": "npm run format && npm run lint",
     "test": "jest --rootDir=./src/__tests__",
     "build": "tsc",
-    "start": "node ./build/index.js",
-    "db": "psql postgres://admin@dpg-cmn42n6d3nmc73f63b10-a.frankfurt-postgres.render.com/gadjets_store"
+    "start": "node ./build/index.js"
   },
   "keywords": [],
   "author": "",
@@ -34,8 +33,6 @@
     "reflect-metadata": "^0.2.1",
     "sequelize": "^6.37.1",
     "sequelize-typescript": "^2.1.6",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.0",
     "tslog": "^4.9.2"
   },
   "devDependencies": {
